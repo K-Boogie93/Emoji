@@ -1,0 +1,165 @@
+public class Mains{
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+
+		int x = 0;
+		int y;
+
+
+		String temp;
+		String temp2;
+
+		String[] temparray = new String[25];
+		String[] temparray2 = new String[25];
+		String[] temparray3 = new String[25];
+		String [] rand = new String[25];
+		String [] answer = new String[25];
+
+		String ans = new String();
+		boolean finished = false;
+
+
+
+
+		System.out.println("1 Please enter the capital letter or type DONE when complete");
+		while(finished != true){
+
+
+
+			ans = sc.nextLine();
+			if(ans.equals("DONE")){
+
+				finished = true;
+				break;
+			}
+
+			temparray[x]= ans;
+			x++;
+		}
+
+
+
+
+
+		finished = false;
+
+		x=0;
+
+
+		System.out.println("2 Please enter the capital letter or type DONE when complete");
+		while(finished != true){
+
+
+
+			ans = sc.nextLine();
+			if(ans.equals("DONE")){
+
+				finished = true;
+				break;
+			}
+
+			temparray2[x]= ans;
+			x++;
+		}
+
+
+
+		x=0;
+		finished = false;
+
+
+		System.out.println(" 3 Please enter the capital letter or type DONE when complete");
+		while(finished != true){
+
+
+
+			ans = sc.nextLine();
+			if(ans.equals("DONE")){
+				System.out.println("It is done");
+				finished = true;
+				break;
+
+			}
+
+			temparray3[x]= ans;
+			x++;
+		}
+		
+		
+		
+		System.out.println(temparray[0] + " " + temparray2[0]+ " " + temparray3[0]);
+		
+		System.out.println("Most likely, the letters are the following:");
+		
+		int g = 0;
+		while(answer[g] != null){
+			System.out.print(answer[g]);
+			if(answer[g++] == "null"){
+				break;
+			}else{
+				System.out.print(",");
+				
+				
+			
+			g++;
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		rand = check(temparray,temparray2);
+		answer = check(rand, temparray3);
+		System.out.println(answer[0]);
+
+		
+
+
+	}
+
+
+
+
+
+
+
+
+
+	public static String[] check(String[] A, String[] B){
+		int z = 0;
+		int k = 0;
+		int repcount = 0;
+		String[] Repeated = new String[25];
+
+
+
+
+		while(A[z] != "null"){
+			while(B[k] != "null"){
+
+
+				if(A[z] == B[k]){
+					Repeated[repcount] = B[k];
+					repcount++;
+					B[k] = "Matched";
+					k++;
+				}
+
+
+			}
+			k = 0;
+			z++;
+		}
+
+
+		return Repeated;
+	}
+
+}
+
+
+
